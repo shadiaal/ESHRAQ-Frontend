@@ -8,7 +8,8 @@
   background: radial-gradient(circle at top left, #ffe4ec, transparent 60%), radial-gradient(circle at bottom right, #ffe9d6, transparent 60%);
   position: relative;
   overflow: hidden;
-  font-family: 'Poppins', 'Cairo', sans-serif;
+
+  font-family: Arial, sans-serif;
 }
 
 
