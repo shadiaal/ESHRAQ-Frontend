@@ -1,0 +1,80 @@
+<div class="main-layout">
+
+  <!-- LEFT -->
+  <div class="left-panel">
+
+
+  
+
+    <div class="logo">
+
+      <div class="logo-main">
+        <span class="logo-en">ESHRAQ</span>
+        <span class="shine"></span>
+      </div>
+      <span class="divider"></span>
+
+
+    </div>
+
+    <p class="desc">
+      تجربة تفاعلية تفهم بشرتك وتعطيك توصيات مخصصة لك
+    </p>
+    <div class="steps">
+
+      <div class="step">
+        <span class="material-icons">quiz</span>
+        <p>راح نسألك كم سؤال بسيط</p>
+      </div>
+
+      <div class="step">
+        <span class="material-icons">psychology</span>
+        <p>نفهم نوع بشرتك واحتياجك</p>
+      </div>
+
+      <div class="step">
+        <span class="material-icons">auto_awesome</span>
+        <p>نعطيك توصية مخصصة لك</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT CHAT -->
+  <div class="right-panel">
+
+    <div class="chat">
+
+      <div class="chat-header">
+        ESHRAQ AI
+      </div>
+
+      <div class="messages">
+
+        <div *ngFor="let m of messages"
+             class="msg"
+             [ngClass]="m.type">
+          {{ m.text }}
+        </div>
+
+        <div class="typing" *ngIf="isTyping">
+          <span></span><span></span><span></span>
+        </div>
+
+      </div>
+
+      <div class="input-box">
+
+        <input [(ngModel)]="text"
+               (keydown.enter)="send()"
+               placeholder="اكتبي هنا..." />
+
+        <button (click)="send()">➤</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

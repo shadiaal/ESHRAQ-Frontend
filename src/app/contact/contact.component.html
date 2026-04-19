@@ -1,0 +1,60 @@
+<section class="contact-page">
+
+  <form #f="ngForm" (ngSubmit)="send(f)" class="contact-card">
+
+    <h2>
+      <span class="material-icons">mail</span>
+      تواصل معنا
+    </h2>
+
+    <!-- رسالة النجاح -->
+    <p class="success" *ngIf="successMessage">
+      {{ successMessage }}
+    </p>
+
+    <!-- رسالة الخطأ -->
+    <p class="error" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </p>
+
+    <p class="subtitle">يسعدنا تواصلك في أي وقت</p>
+
+    <!-- الاسم -->
+    <div class="form-group">
+      <input name="name"
+             [(ngModel)]="name"
+             required
+             placeholder="اسمك" />
+    </div>
+
+    <!-- الإيميل -->
+    <div class="form-group">
+      <input name="email"
+             [(ngModel)]="email"
+             required
+             email
+             #emailRef="ngModel"
+             placeholder="بريدك الإلكتروني" />
+
+      <p class="error"
+         *ngIf="emailRef.invalid && emailRef.dirty && !successMessage">
+        الرجاء إدخال بريد إلكتروني صحيح
+      </p>
+    </div>
+   
+    <!-- الرسالة -->
+    <div class="form-group">
+      <textarea name="message"
+                [(ngModel)]="message"
+                required
+                placeholder="رسالتك">
+      </textarea>
+    </div>
+
+    <button class="send-btn" type="submit">
+      إرسال
+    </button>
+
+  </form>
+
+</section>
