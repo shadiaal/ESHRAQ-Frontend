@@ -2,7 +2,6 @@
 html, body {
   margin: 0;
   padding: 0;
- /* font-family: 'Cairo', 'Poppins', sans-serif;*/
   font-family: Arial, sans-serif;
   background: linear-gradient(180deg, #fff7fa, #ffffff, #fdfdfd);
   color: #1f1f2e;
@@ -10,7 +9,7 @@ html, body {
 
 /* ================= HERO ================= */
 .hero {
-  height: 100vh;
+  min-height: 100vh; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +19,6 @@ html, body {
   overflow: hidden;
 }
 
-  /* حركة خلفية */
   .hero::before {
     content: "";
     position: absolute;
@@ -40,7 +38,6 @@ html, body {
 }
 
 /* ================= LOGO ================= */
-
 .logo {
   display: flex;
   flex-direction: column;
@@ -50,7 +47,6 @@ html, body {
   margin-bottom: 50px;
 }
 
-/* ================= MAIN LOGO ================= */
 .logo-main {
   position: relative;
   overflow: hidden;
@@ -67,42 +63,25 @@ html, body {
   animation: gradientMove 4s linear infinite;
 }
 
-/* ✨ shine */
+/* shine */
 .shine {
   position: absolute;
   top: 0;
   left: -120%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.6),
-    transparent
-  );
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
   transform: skewX(-20deg);
   animation: shineMove 3.5s infinite;
 }
+
 /* ================= DIVIDER ================= */
 .divider {
   width: 70px;
   height: 2px;
   background: linear-gradient(90deg, #ff4d6d, #ff9f6b);
   border-radius: 10px;
-  position: relative;
-  overflow: hidden;
 }
-
-  /* Glow داخل الخط */
-  .divider::after {
-    content: "";
-    position: absolute;
-    width: 30%;
-    height: 100%;
-    background: rgba(255,255,255,0.6);
-    animation: lineGlow 2.5s infinite;
-  }
-
 
 /* ================= HOVER ================= */
 .logo:hover .logo-en {
@@ -110,28 +89,6 @@ html, body {
   text-shadow: 0 15px 35px rgba(255,77,109,0.25);
 }
 
-.logo:hover  {
-  color: #ff4d6d;
-  opacity: 1;
-}
-
-/* ================= ANIMATIONS ================= */
-@keyframes gradientMove {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes shineMove {
-  0% { left: -120%; }
-  60% { left: 120%; }
-  100% { left: 120%; }
-}
-
-@keyframes linePulse {
-  0% { transform: scaleX(0.8); opacity: 0.3; }
-  50% { transform: scaleX(1.1); opacity: 0.7; }
-  100% { transform: scaleX(0.8); opacity: 0.3; }
-}
 /* ================= TITLE ================= */
 .hero h1 {
   font-size: 46px;
@@ -140,7 +97,6 @@ html, body {
   background: linear-gradient(90deg, #1f1f2e, #ff4d6d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
 }
 
 /* ================= TEXT ================= */
@@ -200,7 +156,7 @@ html, body {
   .why-text h2 {
     font-size: 44px;
     font-weight: 900;
-    text-align:center;
+    text-align: center;
     background: linear-gradient(90deg, #ff4d6d, #ff9f6b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -240,7 +196,7 @@ html, body {
   }
 
 /* ICON */
-  .icon-box {
+.icon-box {
   width: 42px;
   height: 42px;
   display: flex;
@@ -250,21 +206,16 @@ html, body {
   background: linear-gradient(135deg, #ff4d6d, #ff9f6b);
 }
 
-    .icon-box .material-icons {
-      color: white;
-      font-size: 22px;
-    }
-
+  .icon-box .material-icons {
+    color: white;
+    font-size: 22px;
+  }
 
 /* TEXT */
 .mini-card h3 {
   margin: 0;
   font-size: 15px;
   color: #1f1f2e;
-  display: flex;
-  flex-direction: row-reverse;  
-align-items: center;
-  gap: 12px;
   text-align: right;
 }
 
@@ -272,22 +223,31 @@ align-items: center;
   margin: 3px 0 0;
   font-size: 13px;
   color: #777;
-  display: flex;
-  flex-direction: row-reverse; 
-align-items: center;
-  gap: 12px;
   text-align: right;
 }
+
 /* ================= ANIMATIONS ================= */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes shineMove {
+  0% {
+    left: -120%;
+  }
+
+  60% {
+    left: 120%;
+  }
+
+  100% {
+    left: 120%;
   }
 }
 
@@ -301,12 +261,36 @@ align-items: center;
   }
 }
 
-@keyframes floatLogo {
-  0%,100% {
-    transform: translateY(0);
+/* ================= RESPONSIVE ================= */
+
+/* تابلت */
+@media (max-width: 900px) {
+  .why-eshraq {
+    flex-direction: column;
+    padding: 80px 40px;
   }
 
-  50% {
-    transform: translateY(-5px);
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* موبايل */
+@media (max-width: 600px) {
+
+  .hero {
+    padding: 20px;
+  }
+
+  .primary {
+    width: 100%;
+  }
+
+  .why-eshraq {
+    padding: 60px 20px;
+  }
+
+  .why-image img {
+    height: auto;
   }
 }
